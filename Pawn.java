@@ -46,11 +46,11 @@ public class Pawn extends Piece {
 
         if (super.getColor() == Color.WHITE) {
             move1 = "" + currentFile + up1Rank;
-            if ((new Square(move1)).isValidSquare()) {
+            try {
+                new Square(move1);
                 moveStr = moveStr + move1 + " ";
-            } else {
-                Square[] toReturn = new Square[0];
-                return toReturn;
+            } catch (InvalidSquareException e) {
+                return new Square[0];
             }
 
             if (currentRank == '2') {
@@ -59,11 +59,11 @@ public class Pawn extends Piece {
             }
         } else {
             move1 = "" + currentFile + down1Rank;
-            if ((new Square(move1)).isValidSquare()) {
+            try {
+                new Square(move1);
                 moveStr = moveStr + move1 + " ";
-            } else {
-                Square[] toReturn = new Square[0];
-                return toReturn;
+            } catch (InvalidSquareException e) {
+                return new Square[0];
             }
 
             if (currentRank == '7') {

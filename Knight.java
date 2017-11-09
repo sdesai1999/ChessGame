@@ -60,8 +60,11 @@ public class Knight extends Piece {
                                 move8};
 
         for (int i = 0; i < tmpMovesArr.length; i++) {
-            if ((new Square(tmpMovesArr[i])).isValidSquare()) {
+            try {
+                new Square(tmpMovesArr[i]);
                 moveStr = moveStr + tmpMovesArr[i] + " ";
+            } catch (InvalidSquareException e) {
+                moveStr = moveStr;
             }
         }
 
