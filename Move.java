@@ -21,16 +21,21 @@ public class Move {
     }
 
     /**
-     * @return whitePly : white player's move
+     * @return white player's move
     */
     public Ply getWhitePly() {
         return this.whitePly;
     }
 
     /**
-     * @return blackPly : black player's move
+     * @return black player's move
     */
     public Ply getBlackPly() {
         return this.blackPly;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s ... %s", whitePly, blackPly);
     }
 }

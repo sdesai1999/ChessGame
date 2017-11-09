@@ -4,7 +4,7 @@ import java.util.Optional;
  * Represents a player's move in chess.
  *
  * @author sdesai88
- * @version 11/8/17
+ * @version 11/9/17
 */
 public class Ply {
 
@@ -29,30 +29,36 @@ public class Ply {
     }
 
     /**
-     * @return piece : the Piece that will move
+     * @return the Piece that will move
     */
     public Piece getPiece() {
         return this.piece;
     }
 
     /**
-     * @return from : the original Square
+     * @return the original Square
     */
     public Square getFrom() {
         return this.from;
     }
 
     /**
-     * @return to : the ending Square
+     * @return the ending Square
     */
     public Square getTo() {
         return this.to;
     }
 
     /**
-     * @return comment : the String thay may or not be there
+     * @return the comment thay may or not be there
     */
     public Optional<String> getComment() {
         return this.comment;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s from %s to %s", piece.fenName(), from,
+            to);
     }
 }
